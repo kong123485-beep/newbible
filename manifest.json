@@ -1,0 +1,21 @@
+{
+  "short_name": "新約書信",
+  "name": "聖經新約 21 卷書信總覽",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "index.html",
+  "background_color": "#f7f9fa",
+  "theme_color": "#2c3e50",
+  "display": "standalone",
+  "orientation": "portrait"
+}
