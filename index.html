@@ -2,46 +2,47 @@
 <html lang="zh-HK">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>聖經新約總覽 - 四福音 + 使徒行傳 + 21卷書信 + 啟示錄</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>聖經新約總覽</title>
 <style>
 *{box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans HK",sans-serif;margin:0;background:#f7f9fa;color:#333}
-header{background:#2c3e50;color:#fff;text-align:center;padding:20px 12px 16px}
-header h1{margin:0;font-size:1.5rem}
-header p{margin:8px 0 0;opacity:.85;font-size:.9rem}
-nav{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:12px;background:#fff;position:sticky;top:0;z-index:10;box-shadow:0 2px 6px rgba(0,0,0,.08)}
-nav button{border:1px solid #2c3e50;background:#fff;color:#2c3e50;padding:10px 16px;border-radius:999px;font-size:1rem;cursor:pointer}
+html,body{margin:0;padding:0;height:100%;background:#f7f9fa;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans HK",sans-serif;color:#333;overflow:hidden}
+header{background:#2c3e50;color:#fff;text-align:center;padding:8px 10px 7px;flex-shrink:0}
+header h1{margin:0;font-size:1.15rem;line-height:1.3}
+header p{margin:2px 0 0;opacity:.8;font-size:.75rem;line-height:1.3}
+nav{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;padding:7px 8px;background:#fff;flex-shrink:0;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+nav button{border:1px solid #2c3e50;background:#fff;color:#2c3e50;padding:7px 12px;border-radius:999px;font-size:.88rem;cursor:pointer;line-height:1.2}
 nav button.active{background:#2c3e50;color:#fff}
-.hint{text-align:center;font-size:.85rem;color:#7f8c8d;padding:8px 12px}
-.frame-wrap{max-width:1100px;margin:0 auto;padding:0 12px 24px}
-iframe{width:100%;height:calc(100vh - 190px);min-height:700px;border:0;background:#fff;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
-@media(max-width:600px){iframe{height:calc(100vh - 220px);min-height:600px}}
-footer{text-align:center;color:#999;font-size:.8rem;padding:12px}
-a{color:#2c3e50}
+.wrap{display:flex;flex-direction:column;height:100dvh;height:100vh}
+.frame-wrap{flex:1;min-height:0;padding:6px 8px 8px}
+iframe{width:100%;height:100%;border:0;background:#fff;border-radius:10px;box-shadow:0 1px 6px rgba(0,0,0,.08);display:block}
+.hint{text-align:center;font-size:.72rem;color:#7f8c8d;padding:0 8px 4px;flex-shrink:0}
+.hint a{color:#2c3e50}
+@media(max-width:480px){
+ header{padding:6px 8px 5px} header h1{font-size:1.05rem} header p{font-size:.7rem}
+ nav{padding:6px} nav button{font-size:.82rem;padding:6px 10px}
+ .frame-wrap{padding:4px 6px 6px}
+}
 </style>
 </head>
 <body>
-<header>
-<h1>聖經新約總覽</h1>
-<p>四福音 &nbsp;·&nbsp; 使徒行傳 + 啟示錄 &nbsp;·&nbsp; 21 卷書信</p>
-</header>
+<div class="wrap">
+<header><h1>聖經新約總覽</h1><p>四福音 · 使徒行傳 + 啟示錄 · 21 卷書信</p></header>
 <nav>
 <button id="btn-gospels" class="active" onclick="show('gospels')">四福音</button>
 <button id="btn-act" onclick="show('act')">使徒行傳 + 啟示錄</button>
 <button id="btn-epistles" onclick="show('epistles')">21 卷書信</button>
 </nav>
-<div class="hint">撳上面按鈕切換，唔使跳走去第二個檔案。三個都係獨立 HTML，離線都開到。</div>
-<div class="frame-wrap">
-<iframe id="frame" src="gospels.html" title="新約總覽"></iframe>
+<div class="hint">如果內容睇唔晒，喺框入面碌落去就得 · <a id="openLink" href="gospels.html">開全頁</a></div>
+<div class="frame-wrap"><iframe id="frame" src="gospels.html" title="新約總覽"></iframe></div>
 </div>
-<footer>檔案：index.html + gospels.html + act.html + epistles.html &nbsp;|&nbsp; 建議用 Chrome / Safari 開啟</footer>
 <script>
 function show(name){
-  var map={gospels:'gospels.html', act:'act.html', epistles:'epistles.html'};
-  document.getElementById('frame').src=map[name];
-  document.querySelectorAll('nav button').forEach(function(b){b.classList.remove('active')});
-  document.getElementById('btn-'+name).classList.add('active');
+ var map={gospels:'gospels.html',act:'act.html',epistles:'epistles.html'};
+ document.getElementById('frame').src=map[name];
+ document.getElementById('openLink').href=map[name];
+ document.querySelectorAll('nav button').forEach(function(b){b.classList.remove('active')});
+ document.getElementById('btn-'+name).classList.add('active');
 }
 </script>
 </body>
