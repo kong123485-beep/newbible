@@ -45,5 +45,16 @@ function show(name){
  document.getElementById('btn-'+name).classList.add('active');
 }
 </script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js')
+          .then((reg) => console.log('Service Worker 註冊成功:', reg.scope))
+          .catch((err) => console.error('Service Worker 註冊失敗:', err));
+      });
+    }
+  </script>
+</body>
+
 </body>
 </html>
